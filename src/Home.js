@@ -8,11 +8,13 @@ const Home = () => {
     try {
       const {
         data: { key },
-      } = await axios.get("http://localhost:4000/get_key");
+      // } = await axios.get("http://localhost:4000/get_key");
+      } = await axios.get("https://payment-gateway-ui.vercel.app/get_key");
 
       const {
         data: { order },
-      } = await axios.post("http://localhost:4000/api/checkout", {
+      // } = await axios.post("http://localhost:4000/api/checkout", {
+      } = await axios.post("https://payment-gateway-ui.vercel.app/api/checkout", {
         amount,
       });
 
@@ -24,7 +26,8 @@ const Home = () => {
         description: "wdjkbcbckddcb",
         image: "https://avatars.githubusercontent.com/u/87579538?v=4",
         order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-        callback_url: "http://localhost:4000/api/paymentverification",
+        // callback_url: "http://localhost:4000/api/paymentverification",
+        callback_url: "https://payment-gateway-ui.vercel.app/api/paymentverification",
         prefill: {
           name: "Gaurav Kumar",
           email: "gaurav.kumar@example.com",
